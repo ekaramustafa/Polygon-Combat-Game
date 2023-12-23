@@ -1,3 +1,0 @@
-name: Unity - Builder
-on: [push]
-uses: game-ci/unity-builder@v4.1.3
