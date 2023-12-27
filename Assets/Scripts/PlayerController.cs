@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector2 movement = InputManager.Instance.GetPlayerMovement();
+        
         currentMovementVector = Vector2.SmoothDamp(currentMovementVector, movement, ref smoothMovementVelocity, smoothInputSpeed);
         Vector3 move = new Vector3(currentMovementVector.x, 0, currentMovementVector.y);
 

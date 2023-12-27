@@ -12,6 +12,8 @@ public class CinemachinePOVExtension : CinemachineExtension
     private float horizantalSpeed = 10f;
     [SerializeField]
     private float verticalSpeed = 10f;
+    [SerializeField]
+    private Transform player; 
 
     private Vector3 startingRotation; 
     protected override void PostPipelineStageCallback(CinemachineVirtualCameraBase vcam, CinemachineCore.Stage stage, ref CameraState state, float deltaTime)
@@ -26,6 +28,7 @@ public class CinemachinePOVExtension : CinemachineExtension
                 startingRotation.y += deltaInput.y * horizantalSpeed * deltaTime;
                 startingRotation.y = Mathf.Clamp(startingRotation.y, -clampAngleDown, clampAngleUp);
                 state.RawOrientation = Quaternion.Euler(-startingRotation.y, startingRotation.x,0f);
+                player.transform.rotation = Quaternion.Euler(0f, startingRotation.x, 0f);
             }
         }
     }
